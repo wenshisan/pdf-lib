@@ -21,7 +21,7 @@ class PDFDict extends PDFObject {
 
   readonly context: PDFContext;
 
-  public readonly dict: DictMap;
+  public dict: DictMap;
 
   protected constructor(map: DictMap, context: PDFContext) {
     super();
