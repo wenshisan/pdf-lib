@@ -61,17 +61,17 @@ class PDFName extends PDFObject {
   static readonly ModDate = PDFName.of('ModDate');
   /* tslint:enable member-ordering */
 
-  private readonly encodedName: string;
+  public encodedName: string;
 
   private constructor(enforcer: any, name: string) {
     if (enforcer !== ENFORCER) throw new PrivateConstructorError('PDFName');
     super();
 
-    let encodedName = '(';
+    let encodedName = '/';
     for (let idx = 0, len = name.length; idx < len; idx++) {
       const character = name[idx];
       const code = toCharCode(character);
-      encodedName += isRegularChar(code) ? character : `#${toHexString(code)}` + ')';
+      encodedName += isRegularChar(code) ? character : `#${toHexString(code)}` ;
     }
 
     this.encodedName = encodedName;
